@@ -23,8 +23,17 @@
         };
 
         Screenshot_capture {
-            bindings = <&none>;
+            bindings = <&screen_capture>;
             key-positions = <1 2>;
+        };
+    };
+
+    macros {
+        screen_capture: screen_capture {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LC(LS(NUMBER_4)))>;
+            label = "SCREEN_CAPTURE";
         };
     };
 
