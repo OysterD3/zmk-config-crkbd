@@ -28,6 +28,92 @@
         };
     };
 
+    macros {
+        delete_all_buffer: close_off_buffer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp SPACE &kp B &kp O>;
+            label = "CLOSE_OFF_BUFFER";
+        };
+
+        delete_current_buffer: delete_current_buffer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp SPACE &kp B &kp D>;
+            label = "DELETE_CURRENT_BUFFER";
+        };
+
+        next_buffer: next_buffer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp RIGHT_BRACKET &kp B>;
+            label = "NEXT_BUFFER";
+        };
+
+        prev_buffer: prev_buffer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LEFT_BRACKET &kp B>;
+            label = "PREV_BUFFER";
+        };
+
+        prev_error: prev_error {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LEFT_BRACKET &kp E>;
+            label = "PREV_ERROR";
+        };
+
+        next_error: next_error {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp RIGHT_BRACKET &kp E>;
+            label = "NEXT_ERROR";
+        };
+
+        move_downward: move_downward {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LA(J)>;
+            label = "MOVE_DOWNWARD";
+        };
+
+        move_upward: move_upward {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LA(K)>;
+            label = "MOVE_UPWARD";
+        };
+
+        save: save {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp W>;
+            label = "SAVE";
+        };
+
+        exit: exit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp Q>;
+            label = "EXIT";
+        };
+
+        go_to_left: go_to_left {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LC(H)>;
+            label = "GO_TO_LEFT";
+        };
+
+        go_to_right: go_to_right {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp LC(L)>;
+            label = "GO_TO_RIGHT";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -92,10 +178,10 @@
 
         navigation_layer {
             bindings = <
-&trans        &trans         &trans    &kp UP    &trans     &trans                      &trans                     &trans    &kp UP_ARROW  &trans     &trans         &trans
-&trans        &trans         &kp LEFT  &kp DOWN  &kp RIGHT  &kp LG(LS(LEFT_BRACKET))    &kp LG(LS(RIGHT_BRACKET))  &kp LEFT  &kp DOWN      &kp RIGHT  &kp PAGE_UP    &trans
-&kp LC(LEFT)  &kp LC(RIGHT)  &trans    &trans    &trans     &trans                      &trans                     &trans    &trans        &trans     &kp PAGE_DOWN  &trans
-                                       &trans    &trans     &trans                      &trans                     &trans    &trans
+&trans        &trans              &trans                  &prev_error   &next_error   &trans                      &trans                     &go_to_left  &kp UP_ARROW  &go_to_right  &trans         &trans
+&exit         &delete_all_buffer  &delete_current_buffer  &prev_buffer  &next_buffer  &kp LG(LS(LEFT_BRACKET))    &kp LG(LS(RIGHT_BRACKET))  &kp LEFT     &kp DOWN      &kp RIGHT     &kp PAGE_UP    &move_upward
+&kp LC(LEFT)  &kp LC(RIGHT)       &trans                  &trans        &save         &trans                      &kp V                      &kp W        &kp B         &kp E         &kp PAGE_DOWN  &move_downward
+                                                          &trans        &trans        &trans                      &trans                     &trans       &trans
             >;
 
             label = "Navigation";
