@@ -14,11 +14,11 @@
 
         Caps_lock {
             bindings = <&kp CAPSLOCK>;
-            key-positions = <38 39>;
+            key-positions = <19 16>;
         };
 
         Screenshot_capture {
-            bindings = <&screen_capture>;
+            bindings = <&kp LG(LC(LS(NUMBER_4)))>;
             key-positions = <1 2>;
         };
 
@@ -101,13 +101,15 @@
             label = "Navigation";
         };
 
-        layer_5 {
+        mouse_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans    &trans  &trans  &trans
             >;
+
+            label = "Mouse";
         };
 
         layer_6 {
