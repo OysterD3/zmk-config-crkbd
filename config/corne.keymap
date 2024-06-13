@@ -94,14 +94,14 @@
         save: save {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp COLON &kp W>;
+            bindings = <&kp COLON &kp W &kp ENTER>;
             label = "SAVE";
         };
 
         exit: exit {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp COLON &kp Q>;
+            bindings = <&kp COLON &kp Q &kp ENTER>;
             label = "EXIT";
         };
 
