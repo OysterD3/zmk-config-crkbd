@@ -36,6 +36,17 @@
         language_switcher {
             bindings = <&kp LC(SPACE)>;
             key-positions = <37 40>;
+            timeout-ms = <100>;
+        };
+
+        tnpm_dev {
+            bindings = <&tnpm_dev>;
+            key-positions = <4 5>;
+        };
+
+        tnpm_install {
+            bindings = <&tnpm_install>;
+            key-positions = <6 7>;
         };
     };
 
@@ -99,14 +110,14 @@
         save: save {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp COLON &kp W &kp ENTER>;
+            bindings = <&kp ESCAPE &kp COLON &kp W &kp ENTER>;
             label = "SAVE";
         };
 
         exit: exit {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp COLON &kp Q &kp ENTER>;
+            bindings = <&kp ESCAPE &kp COLON &kp Q &kp ENTER>;
             label = "EXIT";
         };
 
@@ -122,6 +133,20 @@
             #binding-cells = <0>;
             bindings = <&kp ESCAPE &kp LC(L)>;
             label = "GO_TO_RIGHT";
+        };
+
+        tnpm_dev: tnpm_dev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp R &kp SPACE &kp D &kp E &kp V &kp ENTER>;
+            label = "TNPM_DEV";
+        };
+
+        tnpm_install: tnpm_install {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T &kp I &kp ENTER>;
+            label = "TNPM_INSTALL";
         };
     };
 
