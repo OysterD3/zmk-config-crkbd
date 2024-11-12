@@ -38,16 +38,6 @@
             key-positions = <37 40>;
             timeout-ms = <100>;
         };
-
-        tnpm_dev {
-            bindings = <&tnpm_dev>;
-            key-positions = <4 5>;
-        };
-
-        tnpm_install {
-            bindings = <&tnpm_install>;
-            key-positions = <6 7>;
-        };
     };
 
     macros {
