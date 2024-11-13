@@ -133,20 +133,6 @@
             bindings = <&kp ESCAPE &kp LC(L)>;
             label = "GO_TO_RIGHT";
         };
-
-        tnpm_dev: tnpm_dev {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp T &kp R &kp SPACE &kp D &kp E &kp V &kp ENTER>;
-            label = "TNPM_DEV";
-        };
-
-        tnpm_install: tnpm_install {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp T &kp I &kp ENTER>;
-            label = "TNPM_INSTALL";
-        };
     };
 
     behaviors {
@@ -204,6 +190,15 @@
             tapping-term-ms = <280>;
             flavor = "balanced";
         };
+
+        bkspc_del: bkspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "Backspace Delete";
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -218,10 +213,10 @@
 
             label = "Base";
             bindings = <
-&kp ESCAPE  &kp Q             &kp W        &kp E           &kp R           &kp T          &kp Y        &kp U            &kp I            &kp O        &kp P                      &kp BSPC
-&kp TAB     &mt LEFT_SHIFT A  &mt LCTRL S  &mt LEFT_ALT D  &mt LGUI F      &kp G          &kp H        &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RCTRL L  &mt RIGHT_SHIFT SEMICOLON  &kp SQT
-&kp LSHFT   &kp Z             &kp X        &kp C           &kp V           &kp B          &kp N        &kp M            &kp COMMA        &kp DOT      &kp FSLH                   &kp ENTER
-                                           &kp ESCAPE      &smart_num 1 0  &lt 4 SPACE    &lt 2 SPACE  &lt 3 ENTER      &kp RALT
+&kp ESCAPE  &kp Q             &kp W          &kp E             &kp R           &kp T          &kp Y        &kp U            &kp I            &kp O        &kp P                      &bkspc_del
+&kp TAB     &mt LEFT_SHIFT A  &hrml LCTRL S  &hrml LEFT_ALT D  &hrml LGUI F    &kp G          &kp H        &mt RIGHT_GUI J  &mt RIGHT_ALT K  &mt RCTRL L  &mt RIGHT_SHIFT SEMICOLON  &kp SQT
+&mo 3       &kp Z             &kp X          &kp C             &kp V           &kp B          &kp N        &kp M            &kp COMMA        &kp DOT      &kp FSLH                   &kp ENTER
+                                             &kp ESCAPE        &smart_num 1 0  &lt 4 SPACE    &lt 2 SPACE  &lt 3 ENTER      &kp RALT
             >;
         };
 
@@ -270,7 +265,7 @@
 
         navigation_layer {
             bindings = <
-&trans        &trans              &trans                  &prev_error   &next_error   &trans                      &trans                     &go_to_left  &kp UP_ARROW  &go_to_right  &trans         &trans
+&trans        &kp LG(X)           &kp LG(C)               &prev_error   &next_error   &kp LG(V)                   &trans                     &go_to_left  &kp UP_ARROW  &go_to_right  &trans         &trans
 &exit         &delete_all_buffer  &delete_current_buffer  &prev_buffer  &next_buffer  &kp LG(LS(LEFT_BRACKET))    &kp LG(LS(RIGHT_BRACKET))  &kp LEFT     &kp DOWN      &kp RIGHT     &kp PAGE_UP    &move_upward
 &kp LC(LEFT)  &kp LC(RIGHT)       &trans                  &trans        &save         &trans                      &kp V                      &kp W        &kp B         &kp E         &kp PAGE_DOWN  &move_downward
                                                           &trans        &trans        &trans                      &trans                     &trans       &trans
